@@ -1,0 +1,18 @@
+{
+    "short_name": "PriceTrack",
+    "name": "Price Track FLipkart Amazon Snapdeal Myntra Ebay",
+    "icons": [{
+            "src": "\/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image\/png"
+        }, {
+            "src": "\/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image\/png"
+        }],
+    "start_url": "/",
+    "background_color": "#2196F3",
+    "display": "standalone",
+    "theme_color": "#2196F3",
+    "gcm_sender_id": "103953800507"
+}

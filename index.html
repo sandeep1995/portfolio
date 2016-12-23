@@ -1,253 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="This is Sandeep Acharya, a full stack web developer. I am specialized in LAMP stack.
-                    I develop responsive, high-performance websites. I am always up for a new challange.">
-	<meta name="author" content="Sandeep Acharya">
-	<link rel="icon" href="favicon.ico">
+    <title>Intelligent Tracking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<title>Sandeep Acharya | Custom Website Developer </title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/nav-fixed-top.css" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#2196F32196F3">
+
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase-messaging.js"></script>
+    <script>
+
+        var config = {
+            apiKey: "AIzaSyAOy-ggZOPeaDKsBH5ocTtKI8LAXYklLyc",
+            authDomain: "price-track-41f36.firebaseapp.com",
+            databaseURL: "https://price-track-41f36.firebaseio.com",
+            storageBucket: "price-track-41f36.appspot.com",
+            messagingSenderId: "889371045170"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
+    <script type="text/javascript">
+
+        var uiConfig = {
+            signInSuccessUrl: '/',
+            signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
+
+            tosUrl: '/'
+        };
+
+
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
+    <!-- Page Content goes here -->
+    <div class="row" id="welcome">
+        <div class="col s12">
+            <div class="col s12 m8 offset-m2 l6 offset-l3">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+                        <div class="col s12">
+                            <h1>Price Track</h1>
+                            <span class="black-text">
+                                    Let's join and track prices
+                                </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="firebaseui-auth-container"></div>
+        </div>
+    </div>
+    <div class="navbar-fixed" id="nav" style="display:none">
+        <nav class="default_color" role="navigation">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="/" id="logo-container" class="brand-logo">
+                        <b>Price TRACK</b>
+                    </a>
+                    <ul class="right hide-on-med-and-down">
 
-	<!--           -->
+                        <li>
+                            <a class="user-name"></a>
+                        </li>
+                        <li>
+                            <a class="logout">Log Out</a>
+                        </li>
+                    </ul>
+                    <ul id="nav-mobile" class="side-nav">
 
-	<div class="modal fade" id="twitter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h3 class="modal-title" id="myModalLabel">Twitter Wall</h3>
-				</div>
-				<div class="modal-body">
-					<img class="img-responsive" src="img/twitter/a.jpg">
-					<p>
-						<br> A twitter client using Twitter OAuth Login
-					</p>
-				</div>
-				<div class="modal-footer" style="background: #efefef;">
-					<a href="./twitter.html" class="btn btn-info" role="button">View Details</a>
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="old" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h3 class="modal-title" id="myModalLabel">Social Networking Site</h3>
-				</div>
-				<div class="modal-body">
-					<img class="img-responsive" src="img/old/2.jpg">
-					<p>
-						<br> Everything from commenting, liking, messaging, friends
-					</p>
-				</div>
-				<div class="modal-footer" style="background: #efefef;">
-					<a href="./old.html" class="btn btn-info" role="button">View Details</a>
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="reviewbap" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h3 class="modal-title" id="myModalLabel">Reviewbap.com</h3>
-				</div>
-				<div class="modal-body">
-					<img class="img-responsive" src="img/reviewbap/100.jpeg">
-					<p>
-						<br> A product reviewing website
-					</p>
-				</div>
-				<div class="modal-footer" style="background: #efefef;">
-					<a href="./reviewbap.html" class="btn btn-info" role="button">View Details</a>
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
+                        <li>
+                            <a class="user-name"></a>
+                        </li>
+                        <li>
+                            <a class="logout">Log Out</a>
+                        </li>
+                    </ul>
+                    <a href="#" data-activates="nav-mobile" class="button-collapse">
+                        <i class="mdi-navigation-menu"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
 
-	<div class="modal fade" id="atmosphere" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h3 class="modal-title" id="myModalLabel">Atmosphere</h3>
-				</div>
-				<div class="modal-body">
-					<img class="img-responsive" src="img/atmosphere/2.jpg">
-					<p>
-						<br> A hotel Website Template
-					</p>
-				</div>
-				<div class="modal-footer" style="background: #efefef;">
-					<a href="./atmosphere.html" class="btn btn-info" role="button">View Details</a>
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="container" id="loggedIn" style="display:none">
+        <div class="section">
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <div class="card">
 
-	<div class="modal fade" id="timebranch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h3 class="modal-title" id="myModalLabel">Timebranch</h3>
-				</div>
-				<div class="modal-body">
-					<img class="img-responsive" src="img/timebranch/ee.jpg">
-					<p>
-						<br> A Live social netwroking site.
-					</p>
-				</div>
-				<div class="modal-footer" style="background: #efefef;">
-					<a href="./timebranch.html" class="btn btn-info" role="button">View Details</a>
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
+                            <div class="card-content">
+                                <div class="col s11">
+                                    <div class="input-field">
+                                        <input id="url" type="url" class="validate" placeholder="Currently only for Flipkart Amazon Snapdeal Ebay and Myntra" autofocus>
+                                        <label for="url">Add product link</label>
+                                    </div>
+                                </div>
+                                <div class="col s1">
+                                    <button id="add" class="btn-floating btn-large waves-effect waves-light">
+                                            <i class="material-icons">add</i>
+                                        </button>
+                                </div>
+                            </div>
+                            <div class="progress">
+                                <div class="indeterminate blue" style="display: none"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-content">
+                                <table class="bordered centered">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="img">Image</th>
+                                            <th data-field="name">Name</th>
+                                            <th data-field="price">Price</th>
+                                            <th data-field="merchant">Merchant</th>
+                                            <th data-field="button">Buy Now</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="urls"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
-	<!--        -->
+                </div>
+            </div>
+        </div>
 
-	<!-- Fixed navbar -->
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-				<a class="navbar-brand" href="./">Sandeep</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="./">Home</a></li>
-					<li><a href="./service.html">Services and Contact</a></li>
-					
-
-				</ul>
-
-			</div>
-			<!--/.nav-collapse -->
-		</div>
-	</nav>
-
-	<div class="container">
-
-		<!-- Main component for a primary marketing message or call to action -->
-		<div class="jumbotron">
-			<center>
-				<h1>You dream. I build!</h1>
-				<p class="lead">
-					<hr> Hey there, I am <a href="https://github.com/sandeep1995" target="_blank"><b>Sandeep Acharya</b></a> , a freelance web developer from Kolkata.
-					<br> I do make custom web applications as per your requirements. Don't want to bore you, see some of my previous works below.
-					<br> Thank you.
-				</p>
-				<p>
-					<a class="btn btn-lg btn-primary" href="https://www.freelancer.com/u/sandeep1995.html" role="button">Hire Me at Freelancer</a>
-					<a class="btn btn-lg btn-warning" href="http://www.upwork.com/o/profiles/users/_~0186634c11fb921a62/" role="button">Hire Me at Upwork</a>
-
-				</p>
-			</center>
-		</div>
-
-		<div class="row">
-			<div class="col-sm-6 col-md-4">
-				<div class="thumbnail">
-					<img class="img-responsive" src="img/atmosphere/2.jpg" data-toggle="modal" data-target="#atmosphere" type="button">
-					<div class="caption">
-						<h3>Atmosphere</h3>
-						<p>A hotel website template</p>
-						<p><a href="./atmosphere.html" class="btn btn-info" role="button">View Details</a>
-							<a href="https://youtu.be/DQSLOHDqCrw" class="btn btn-default" role="button">YouTube Video Demo</a></p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-4">
-				<div class="thumbnail">
-					<img class="img-responsive" src="img/timebranch/ee.jpg" data-toggle="modal" data-target="#timebranch" type="button">
-					<div class="caption">
-						<h3>Timebranch</h3>
-						<p>A live social networking site</p>
-						<p><a href="./timebranch.html" class="btn btn-info" role="button">View Details</a>
-							<a href="https://www.youtube.com/watch?v=9LhMBfxINEA" class="btn btn-default" role="button">YouTube Video Demo</a></p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-4">
-				<div class="thumbnail">
-					<img class="img-responsive" src="img/twitter/a.jpg" data-toggle="modal" data-target="#twitter" type="button">
-					<div class="caption">
-						<h3>TwitterWall</h3>
-						<p>A twitter client for a special #hashtag</p>
-						<p><a href="./twitter.html" class="btn btn-info" role="button">View Details</a>
-							<a href="https://www.youtube.com/watch?v=-gwcrsKCswk" class="btn btn-default" role="button">YouTube Video Demo</a></p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-4">
-				<div class="thumbnail">
-					<img class="img-responsive" src="img/reviewbap/100.jpeg" data-toggle="modal" data-target="#reviewbap" type="button">
-					<div class="caption">
-						<h3>Reviewbap.com</h3>
-						<p>An electronics gadget reviewing website</p>
-						<p><a href="./reviewbap.html" class="btn btn-info" role="button">View Details</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-4">
-				<div class="thumbnail">
-					<img class="img-responsive" src="img/old/2.jpg" data-toggle="modal" data-target="#old" type="button">
-					<div class="caption">
-						<h3>A social Networking Site</h3>
-						<p>Everything from commenting, liking, messaging, friends</p>
-						<p><a href="./old.html" class="btn btn-info" role="button">View Details</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-4">
-				<div class="thumbnail">
-					<img class="img-responsive" src="img/q.png">
-					<div class="caption">
-						<h3>Next may be your project</h3>
-						<p>Simplicity is the ultimate sophistication.</p>
-					</div>
-				</div>
-			</div>
-
-<div class="lead">
-  <center>
-    <strong>Thank you for your time.</strong>
-    <hr>
-    <a href="./service.html">Know more about me</a>
-  </center>
-</div>
-	</div>
-	<!-- /container -->
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script src="/javascripts/app.js"></script>
 </body>
 
 </html>
